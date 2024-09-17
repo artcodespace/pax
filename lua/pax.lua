@@ -176,7 +176,7 @@ end
 local function load()
 	vim.cmd("highlight clear")
 	vim.cmd("set t_Co=256")
-	vim.cmd("let g:colors_name='pax_zero'")
+	vim.cmd("let g:colors_name='pax'")
 
 	local highlight_groups = get_highlight_groups(dark_theme)
 
