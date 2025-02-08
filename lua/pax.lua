@@ -3,6 +3,7 @@ local pax_colors = {
 	red = "#e61919",
 	orange = "#e68019",
 	green = "#14b814",
+	black = "#000000",
 	grey10 = "#1a1a1a",
 	grey20 = "#333333",
 	grey30 = "#4d4d4d",
@@ -12,6 +13,7 @@ local pax_colors = {
 	grey70 = "#b3b3b3",
 	grey80 = "#cccccc",
 	grey90 = "#e6e6e6",
+	white = "#ffffff",
 }
 
 local dark_theme = {
@@ -24,6 +26,23 @@ local dark_theme = {
 	fg_minus_minus = pax_colors.grey70,
 	fg_minus = pax_colors.grey80,
 	fg = pax_colors.grey90,
+	cursor_bg = pax_colors.hibiscus,
+	error = pax_colors.red,
+	warning = pax_colors.orange,
+	success = pax_colors.green,
+	highlights = {},
+}
+
+local light_theme = {
+	bg = pax_colors.white,
+	bg_plus = pax_colors.grey90,
+	bg_plus_plus = pax_colors.grey80,
+	mg_minus = pax_colors.grey50,
+	mg = pax_colors.grey40,
+	mg_plus = pax_colors.grey30,
+	fg_minus_minus = pax_colors.grey20,
+	fg_minus = pax_colors.grey10,
+	fg = pax_colors.black,
 	cursor_bg = pax_colors.hibiscus,
 	error = pax_colors.red,
 	warning = pax_colors.orange,
@@ -136,6 +155,7 @@ local function get_highlight_groups(theme)
 		["@comment.todo"] = { link = "Todo" },
 		["@comment.warning"] = { link = "Todo" },
 		["@comment.note"] = { link = "Todo" },
+		["@variable"] = { link = "Identifier" },
 		-- TREESITTER/JSX
 		["@boolean.javascript"] = { fg = theme.fg_minus, bold = true },
 		["@constant.builtin.javascript"] = { fg = theme.fg_minus, bold = true },
@@ -179,7 +199,9 @@ local function load()
 	vim.cmd("set t_Co=256")
 	vim.cmd("let g:colors_name='pax'")
 
-	local highlight_groups = get_highlight_groups(dark_theme)
+	local background = vim.api.nvim_get_option("background")
+	local theme = background == "dark" and dark_theme or light_theme
+	local highlight_groups = get_highlight_groups(theme)
 
 	for group, attrs in pairs(highlight_groups) do
 		vim.api.nvim_set_hl(0, group, attrs)
