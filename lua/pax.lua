@@ -65,6 +65,7 @@ local function get_highlight_groups(theme)
 		Directory = { fg = theme.fg },
 		EndOfBuffer = { fg = theme.bg, bg = theme.bg },
 		ErrorMsg = { fg = theme.error },
+		ErrorMsgReverse = { bg = theme.error },
 		FloatBorder = { fg = theme.fg },
 		IncSearch = { fg = theme.fg, bg = theme.bg, reverse = true },
 		LineNr = { fg = theme.mg },
@@ -79,6 +80,7 @@ local function get_highlight_groups(theme)
 		TermCursor = { bg = theme.cursor_bg },
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
 		WarningMsg = { fg = theme.warning },
+		WarningMsgReverse = { bg = theme.warning },
 		WinBar = { fg = theme.cursor_bg, bg = theme.bg },
 		WinSeparator = { fg = theme.bg_plus_plus, bg = theme.bg },
 		-- NEOVIM LINKED
