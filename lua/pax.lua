@@ -1,6 +1,5 @@
 local pax_colors = {
 	hibiscus = "#ff007b",
-	ice = "#19e5e6",
 	red = "#e61919",
 	orange = "#e68019",
 	green = "#14b814",
@@ -27,7 +26,7 @@ local dark_theme = {
 	fg_minus_minus = pax_colors.grey70,
 	fg_minus = pax_colors.grey80,
 	fg = pax_colors.grey90,
-	cursor_bg = pax_colors.ice,
+	cursor_bg = pax_colors.hibiscus,
 	error = pax_colors.red,
 	warning = pax_colors.orange,
 	success = pax_colors.green,
