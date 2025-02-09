@@ -1,4 +1,6 @@
-local pax_colors = {
+-- Design tokens - these are the colours we use to define the semantic tokens.
+-- If required, these can also be used directly in the hl groups.
+local color = {
 	hibiscus = "#ff007b",
 	red = "#e61919",
 	orange = "#e68019",
@@ -16,44 +18,52 @@ local pax_colors = {
 	white = "#ffffff",
 }
 
-local dark_theme = {
-	bg = pax_colors.grey10,
-	bg_plus = pax_colors.grey20,
-	bg_plus_plus = pax_colors.grey30,
-	mg_minus = pax_colors.grey40,
-	mg = pax_colors.grey50,
-	mg_plus = pax_colors.grey60,
-	fg_minus_minus = pax_colors.grey70,
-	fg_minus = pax_colors.grey80,
-	fg = pax_colors.grey90,
-	cursor_bg = pax_colors.hibiscus,
-	error = pax_colors.red,
-	warning = pax_colors.orange,
-	success = pax_colors.green,
-	highlights = {},
+-- Semantic tokens - these are what we should use in the hl groups. Using these
+-- tokens over the design tokens makes theme toggling easier.
+local dark = {
+	bg = color.grey10,
+	bg_plus = color.grey20,
+	bg_plus_plus = color.grey30,
+	mg_minus = color.grey40,
+	mg = color.grey50,
+	mg_plus = color.grey60,
+	fg_minus_minus = color.grey70,
+	fg_minus = color.grey80,
+	fg = color.grey90,
+	cursor_bg = color.hibiscus,
+	error = color.red,
+	warning = color.orange,
+	success = color.green,
+}
+local light = {
+	bg = color.white,
+	bg_plus = color.grey90,
+	bg_plus_plus = color.grey80,
+	mg_minus = color.grey50,
+	mg = color.grey40,
+	mg_plus = color.grey30,
+	fg_minus_minus = color.grey20,
+	fg_minus = color.grey10,
+	fg = color.black,
+	cursor_bg = color.hibiscus,
+	error = color.red,
+	warning = color.orange,
+	success = color.green,
 }
 
-local light_theme = {
-	bg = pax_colors.white,
-	bg_plus = pax_colors.grey90,
-	bg_plus_plus = pax_colors.grey80,
-	mg_minus = pax_colors.grey50,
-	mg = pax_colors.grey40,
-	mg_plus = pax_colors.grey30,
-	fg_minus_minus = pax_colors.grey20,
-	fg_minus = pax_colors.grey10,
-	fg = pax_colors.black,
-	cursor_bg = pax_colors.hibiscus,
-	error = pax_colors.red,
-	warning = pax_colors.orange,
-	success = pax_colors.green,
-	highlights = {},
-}
-
--- HELP HL GROUP REFERENCES:
--- group-name highlight-groups treesitter-highlight-groups diagnostic-highlights lsp-highlight lsp-semantic-highlight
-
+-- Given a theme, use the semantic tokens to generate and return a table.
+-- Each key is the name of a hl group, each value is the hl group attributes.
 local function get_highlight_groups(theme)
+	-- To find inbuilt hl-groups, try using `:help <item>` from the following:
+	-- * group-name
+	-- * highlight-groups
+	-- * diagnostic-highlights
+	-- * lsp-highlight
+	-- * lsp-semantic-highlight
+	-- Alternatiely, look at plugin documentation for plugin specific groups.
+	-- * eg treesitter-highlight-groups
+
+	-- To find treesitter tokens try using `:Inspect`
 	return {
 		-- NEOVIM
 		ColorColumn = { bg = theme.bg_plus },
@@ -63,9 +73,7 @@ local function get_highlight_groups(theme)
 		CursorLine = { bg = theme.bg_plus },
 		CursorLineNr = { fg = theme.fg, bg = theme.bg_plus },
 		Directory = { fg = theme.fg },
-		EndOfBuffer = { fg = theme.bg, bg = theme.bg },
 		ErrorMsg = { fg = theme.error },
-		ErrorMsgReverse = { bg = theme.error },
 		FloatBorder = { fg = theme.fg },
 		IncSearch = { fg = theme.fg, bg = theme.bg, reverse = true },
 		LineNr = { fg = theme.mg },
@@ -78,9 +86,9 @@ local function get_highlight_groups(theme)
 		PmenuThumb = { bg = theme.fg_minus },
 		SignColumn = {}, -- deliberately blank
 		TermCursor = { bg = theme.cursor_bg },
+		Title = { fg = theme.fg },
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
 		WarningMsg = { fg = theme.warning },
-		WarningMsgReverse = { bg = theme.warning },
 		WinBar = { fg = theme.cursor_bg, bg = theme.bg },
 		WinSeparator = { fg = theme.bg_plus_plus, bg = theme.bg },
 		-- NEOVIM LINKED
@@ -112,7 +120,6 @@ local function get_highlight_groups(theme)
 		StatusLine = { link = "Conceal" },
 		StatusLineNC = { link = "Conceal" },
 		Substitute = { link = "CurSearch" },
-		Title = { link = "Normal" },
 		VisualNOS = { link = "Visual" },
 		Whitespace = { link = "Normal" },
 		WildMenu = { link = "PmenuSel" },
@@ -138,12 +145,12 @@ local function get_highlight_groups(theme)
 		PreProc = { fg = theme.fg, bold = true },
 		Special = { fg = theme.fg },
 		Statement = { fg = theme.fg, bold = true },
-		String = { link = "Constant" },
+		String = { fg = theme.fg },
 		Type = { fg = theme.fg_minus },
 		Underlined = { underline = true },
+		Todo = { fg = theme.bg, bg = theme.fg },
 		Ignore = { link = "Normal" },
 		Error = { link = "Normal" },
-		Todo = { fg = theme.bg, bg = theme.fg },
 		-- LSP
 		LspCodeLens = { link = "Normal" },
 		LspCodeLensSeparator = { link = "Normal" },
@@ -181,10 +188,10 @@ local function get_highlight_groups(theme)
 		["@tag.builtin.tsx"] = { fg = theme.fg_minus, italic = true },
 		["@tag.delimiter.tsx"] = { fg = theme.fg, bold = true },
 		["@tag.tsx"] = { fg = theme.fg_minus, italic = true },
-		-- TREESITTER/Lua
+		-- TREESITTER/LUA
 		["@boolean.lua"] = { fg = theme.fg_minus, bold = true },
 		["@constructor.lua"] = { link = "Delimiter" },
-		-- FZF
+		-- PLUGIN/FZF
 		FzfLuaHeaderBind = { fg = theme.fg },
 		FzfLuaHeaderText = { link = "FzfLuaHeaderBind" },
 		FzfLuaPathColNr = { link = "LineNr" },
@@ -192,17 +199,22 @@ local function get_highlight_groups(theme)
 		FzfLuaBufNr = { link = "LineNr" },
 		FzfLuaBufFlagCur = { link = "LineNr" },
 		FzfLuaBufFlagAlt = { link = "LineNr" },
+		-- CUSTOM
+		-- nb the below highlight groups make use of the design tokens directly.
+		-- This is because the readability of the white text on the error/warning
+		-- background is much better in both light and dark modes.
+		ErrorMsgReverse = { fg = color.white, bg = theme.error },
+		WarningMsgReverse = { fg = color.white, bg = theme.error },
 	}
 end
 
-local function load()
+local function setup()
 	vim.g.colors_name = "pax"
 	vim.cmd("highlight clear")
 	vim.cmd("set t_Co=256")
-	vim.cmd("let g:colors_name='pax'")
 
 	local background = vim.api.nvim_get_option("background")
-	local theme = background == "dark" and dark_theme or light_theme
+	local theme = background == "dark" and dark or light
 	local highlight_groups = get_highlight_groups(theme)
 
 	for group, attrs in pairs(highlight_groups) do
@@ -210,4 +222,4 @@ local function load()
 	end
 end
 
-return { load = load }
+return { setup = setup }
