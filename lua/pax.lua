@@ -73,7 +73,6 @@ local function get_highlight_groups(theme)
 		CursorLine = { bg = theme.bg_plus },
 		CursorLineNr = { fg = theme.fg, bg = theme.bg_plus },
 		Directory = { fg = theme.fg },
-		EndOfBuffer = { fg = theme.bg, bg = theme.bg },
 		ErrorMsg = { fg = theme.error },
 		FloatBorder = { fg = theme.fg },
 		IncSearch = { fg = theme.fg, bg = theme.bg, reverse = true },
@@ -87,6 +86,7 @@ local function get_highlight_groups(theme)
 		PmenuThumb = { bg = theme.fg_minus },
 		SignColumn = {}, -- deliberately blank
 		TermCursor = { bg = theme.cursor_bg },
+		Title = { fg = theme.fg },
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
 		WarningMsg = { fg = theme.warning },
 		WinBar = { fg = theme.cursor_bg, bg = theme.bg },
@@ -120,7 +120,6 @@ local function get_highlight_groups(theme)
 		StatusLine = { link = "Conceal" },
 		StatusLineNC = { link = "Conceal" },
 		Substitute = { link = "CurSearch" },
-		Title = { link = "Normal" },
 		VisualNOS = { link = "Visual" },
 		Whitespace = { link = "Normal" },
 		WildMenu = { link = "PmenuSel" },
