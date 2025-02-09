@@ -1,5 +1,7 @@
 # Pax
 
+![Neovim monochrome colour scheme example](https://imgur.com/a/J5ZvWBe)
+
 A neovim colourscheme designed for personal use, built around the following ideas:
 
 - The majority of the text displayed in the editor should be monochrome
