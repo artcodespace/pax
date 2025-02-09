@@ -1,6 +1,6 @@
 # Pax
 
-![Neovim monochrome colour scheme example](https://i.imgur.com/EAbzOi8.png)
+![Neovim monochrome colour scheme example](https://i.imgur.com/Qz0EwMS.png)
 
 A neovim colourscheme designed for personal use, built around the following ideas:
 
