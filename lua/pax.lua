@@ -213,7 +213,6 @@ local function load()
 	vim.g.colors_name = "pax"
 	vim.cmd("highlight clear")
 	vim.cmd("set t_Co=256")
-	vim.cmd("let g:colors_name='pax'")
 
 	local background = vim.api.nvim_get_option("background")
 	local theme = background == "dark" and dark or light
