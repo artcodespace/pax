@@ -209,7 +209,7 @@ local function get_highlight_groups(theme)
 	}
 end
 
-local function load()
+local function setup()
 	vim.g.colors_name = "pax"
 	vim.cmd("highlight clear")
 	vim.cmd("set t_Co=256")
@@ -223,4 +223,4 @@ local function load()
 	end
 end
 
-return { load = load }
+return { setup = setup }

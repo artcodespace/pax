@@ -1,1 +1,1 @@
-require("pax").load()
+require("pax").setup()
