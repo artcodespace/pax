@@ -209,9 +209,9 @@ local function get_highlight_groups(theme)
 end
 
 local function setup()
-	vim.g.colors_name = "pax"
 	vim.cmd("highlight clear")
 	vim.cmd("set t_Co=256")
+	vim.g.colors_name = "pax" -- _must_ come after clearing highlights
 
 	local background = vim.api.nvim_get_option("background")
 	local theme = background == "dark" and dark or light
