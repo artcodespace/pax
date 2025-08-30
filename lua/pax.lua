@@ -201,7 +201,7 @@ local function get_highlight_groups(theme)
 		FzfLuaBufFlagAlt = { link = "LineNr" },
 		FzfLuaFzfNormal = { link = "Comment" },
 		FzfLuaFzfCursorLine = { link = "PMenuSel" },
-		FzfLuaFzfMatch = { link = "PMenuSel", italic = true, underline = true },
+		FzfLuaFzfMatch = { fg = theme.bg_minus, bg = theme.fg_plus, italic = true, underline = true },
 		-- CUSTOM
 		-- nb the below highlight groups make use of the design tokens directly.
 		-- This is because the readability of the white text on the error/warning
