@@ -192,6 +192,8 @@ local function get_highlight_groups(theme)
 		["@boolean.lua"] = { fg = theme.fg_minus, bold = true },
 		["@constructor.lua"] = { link = "Delimiter" },
 		-- PLUGIN/FZF
+		FzfLuaFzfNormal = { link = "Comment" },
+		FzfLuaCursorLine = { link = "PMenuSel" },
 		FzfLuaHeaderBind = { fg = theme.fg },
 		FzfLuaHeaderText = { link = "FzfLuaHeaderBind" },
 		FzfLuaPathColNr = { link = "LineNr" },
@@ -199,9 +201,6 @@ local function get_highlight_groups(theme)
 		FzfLuaBufNr = { link = "LineNr" },
 		FzfLuaBufFlagCur = { link = "LineNr" },
 		FzfLuaBufFlagAlt = { link = "LineNr" },
-		FzfLuaFzfNormal = { link = "Comment" },
-		FzfLuaFzfCursorLine = { link = "PMenuSel" },
-		FzfLuaFzfMatch = { fg = theme.bg_minus, bg = theme.fg_plus, italic = true, underline = true },
 		-- CUSTOM
 		-- nb the below highlight groups make use of the design tokens directly.
 		-- This is because the readability of the white text on the error/warning
