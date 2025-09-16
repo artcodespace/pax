@@ -206,7 +206,7 @@ local function get_highlight_groups(theme)
 		-- This is because the readability of the white text on the error/warning
 		-- background is much better in both light and dark modes.
 		ErrorMsgReverse = { fg = color.white, bg = theme.error },
-		WarningMsgReverse = { fg = color.white, bg = theme.error },
+		WarningMsgReverse = { fg = color.white, bg = theme.warning },
 	}
 end
 
