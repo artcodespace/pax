@@ -136,45 +136,45 @@ local function get_highlight_groups(theme)
 		DiagnosticInfo = { fg = theme.mg },
 		DiagnosticOk = { fg = theme.mg },
 		DiagnosticUnnecessary = { italic = true, underline = true },
-		-- SYNTAX TODO >>> add the commented groups!
-		-- Added
-		-- Boolean
-		-- Changed
-		-- Character
+		-- SYNTAX TODO
 		Comment = { fg = theme.mg, italic = true },
-		-- Conditional
 		Constant = { fg = theme.fg },
-		-- Debug
-		Delimiter = { fg = theme.fg },
-		-- Define
-		-- Exception
-		-- Float
-		Function = { fg = theme.fg_minus_minus },
-		Identifier = { fg = theme.fg },
-		-- Include
-		-- Keyword
-		-- Label
-		-- Macro
-		-- Number
-		-- Operator
-		-- PreCondit
-		PreProc = { fg = theme.fg, bold = true },
-		-- Removed
-		-- Repeat
-		Special = { fg = theme.fg },
-		-- SpecialChar
-		-- SpecialComment
-		Statement = { fg = theme.fg, bold = true },
-		-- StorageClass
 		String = { fg = theme.fg },
-		-- Structure
-		-- Tag
+		Character = { fg = theme.fg },
+		Number = { fg = theme.fg },
+		Boolean = { fg = theme.fg },
+		Float = { fg = theme.fg },
+		Identifier = { fg = theme.fg },
+		Function = { fg = theme.fg_minus_minus },
+		Statement = { fg = theme.fg, bold = true },
+		Conditional = { fg = theme.fg_minus_minus },
+		Repeat = { fg = theme.fg_minus_minus },
+		Label = { fg = theme.fg_minus_minus },
+		Operator = { fg = theme.fg_minus_minus },
+		Keyword = { fg = theme.fg_minus_minus },
+		Exception = { fg = theme.fg_minus_minus },
+		PreProc = { fg = theme.fg, bold = true },
+		Include = { fg = theme.fg, bold = true },
+		Define = { fg = theme.fg, bold = true },
+		Macro = { fg = theme.fg, bold = true },
+		PreCondit = { fg = theme.fg, bold = true },
 		Type = { fg = theme.fg_minus },
-		-- Typedef
+		StorageClass = { fg = theme.fg_minus },
+		Structure = { fg = theme.fg_minus },
+		Typedef = { fg = theme.fg_minus },
+		Special = { fg = theme.fg },
+		SpecialChar = { fg = theme.fg },
+		Tag = { fg = theme.fg },
+		Delimiter = { fg = theme.fg },
+		SpecialComment = { fg = theme.fg },
+		Debug = { fg = theme.fg },
 		Underlined = { underline = true },
-		Todo = { fg = theme.bg, bg = theme.fg },
 		Ignore = { link = "Normal" },
 		Error = { link = "Normal" },
+		Todo = { fg = theme.bg, bg = theme.fg },
+		Added = { fg = color.white, bg = theme.success },
+		Changed = { fg = color.white, bg = theme.warning },
+		Removed = { fg = color.white, bg = theme.error },
 		-- LSP
 		LspCodeLens = { link = "Normal" },
 		LspCodeLensSeparator = { link = "Normal" },
@@ -182,39 +182,39 @@ local function get_highlight_groups(theme)
 		LspReferenceText = { link = "Normal" },
 		LspReferenceWrite = { link = "Normal" },
 		LspSignatureActiveParameter = { link = "IncSearch" },
-		-- TREESITTER/SYNTAX
-		["@lsp.type.comment"] = {}, -- required to prevent below being overridden
-		["@comment.error"] = { link = "Todo" },
-		["@comment.todo"] = { link = "Todo" },
-		["@comment.warning"] = { link = "Todo" },
-		["@comment.note"] = { link = "Todo" },
-		["@variable"] = { link = "Identifier" },
-		-- TREESITTER/JSX
-		["@boolean.javascript"] = { fg = theme.fg_minus, bold = true },
-		["@constant.builtin.javascript"] = { fg = theme.fg_minus, bold = true },
-		["@constructor.javascript"] = { link = "Function" },
-		["@function.builtin.javascript"] = { link = "Statement" },
-		["@none.javascript"] = { link = "Constant" },
-		["@tag.attribute.javascript"] = { fg = theme.fg_minus, italic = true },
-		["@tag.builtin.javascript"] = { fg = theme.fg_minus, italic = true },
-		["@tag.delimiter.javascript"] = { fg = theme.fg, bold = true },
-		["@tag.javascript"] = { fg = theme.fg_minus, italic = true },
-		-- TREESITTER/TS
-		["@boolean.typescript"] = { fg = theme.fg_minus, bold = true },
-		["@constant.builtin.typescript"] = { fg = theme.fg_minus, bold = true },
-		["@constructor.typescript"] = { link = "Function" },
-		-- TREESITTER/TSX
-		["@boolean.tsx"] = { fg = theme.fg_minus, bold = true },
-		["@constant.builtin.tsx"] = { fg = theme.fg_minus, bold = true },
-		["@constructor.tsx"] = { link = "Function" },
-		["@none.tsx"] = { link = "Constant" },
-		["@tag.attribute.tsx"] = { fg = theme.fg_minus, italic = true },
-		["@tag.builtin.tsx"] = { fg = theme.fg_minus, italic = true },
-		["@tag.delimiter.tsx"] = { fg = theme.fg, bold = true },
-		["@tag.tsx"] = { fg = theme.fg_minus, italic = true },
-		-- TREESITTER/LUA
-		["@boolean.lua"] = { fg = theme.fg_minus, bold = true },
-		["@constructor.lua"] = { link = "Delimiter" },
+		-- TREESITTER/SYNTAX TODO >>> remove
+		-- ["@lsp.type.comment"] = {}, -- required to prevent below being overridden
+		-- ["@comment.error"] = { link = "Todo" },
+		-- ["@comment.todo"] = { link = "Todo" },
+		-- ["@comment.warning"] = { link = "Todo" },
+		-- ["@comment.note"] = { link = "Todo" },
+		-- ["@variable"] = { link = "Identifier" },
+		-- -- TREESITTER/JSX
+		-- ["@boolean.javascript"] = { fg = theme.fg_minus, bold = true },
+		-- ["@constant.builtin.javascript"] = { fg = theme.fg_minus, bold = true },
+		-- ["@constructor.javascript"] = { link = "Function" },
+		-- ["@function.builtin.javascript"] = { link = "Statement" },
+		-- ["@none.javascript"] = { link = "Constant" },
+		-- ["@tag.attribute.javascript"] = { fg = theme.fg_minus, italic = true },
+		-- ["@tag.builtin.javascript"] = { fg = theme.fg_minus, italic = true },
+		-- ["@tag.delimiter.javascript"] = { fg = theme.fg, bold = true },
+		-- ["@tag.javascript"] = { fg = theme.fg_minus, italic = true },
+		-- -- TREESITTER/TS
+		-- ["@boolean.typescript"] = { fg = theme.fg_minus, bold = true },
+		-- ["@constant.builtin.typescript"] = { fg = theme.fg_minus, bold = true },
+		-- ["@constructor.typescript"] = { link = "Function" },
+		-- -- TREESITTER/TSX
+		-- ["@boolean.tsx"] = { fg = theme.fg_minus, bold = true },
+		-- ["@constant.builtin.tsx"] = { fg = theme.fg_minus, bold = true },
+		-- ["@constructor.tsx"] = { link = "Function" },
+		-- ["@none.tsx"] = { link = "Constant" },
+		-- ["@tag.attribute.tsx"] = { fg = theme.fg_minus, italic = true },
+		-- ["@tag.builtin.tsx"] = { fg = theme.fg_minus, italic = true },
+		-- ["@tag.delimiter.tsx"] = { fg = theme.fg, bold = true },
+		-- ["@tag.tsx"] = { fg = theme.fg_minus, italic = true },
+		-- -- TREESITTER/LUA
+		-- ["@boolean.lua"] = { fg = theme.fg_minus, bold = true },
+		-- ["@constructor.lua"] = { link = "Delimiter" },
 		-- PLUGIN/FZF
 		FzfLuaFzfNormal = { link = "Comment" },
 		FzfLuaCursorLine = { link = "PMenuSel" },
@@ -230,7 +230,7 @@ local function get_highlight_groups(theme)
 		-- This is because the readability of the white text on the error/warning
 		-- background is much better in both light and dark modes.
 		ErrorMsgReverse = { fg = color.white, bg = theme.error },
-		WarningMsgReverse = { fg = color.white, bg = theme.warning },
+		WarningMsgReverse = { fg = color.white, bg = theme.error },
 	}
 end
 
