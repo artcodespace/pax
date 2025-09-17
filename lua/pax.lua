@@ -136,17 +136,41 @@ local function get_highlight_groups(theme)
 		DiagnosticInfo = { fg = theme.mg },
 		DiagnosticOk = { fg = theme.mg },
 		DiagnosticUnnecessary = { italic = true, underline = true },
-		-- SYNTAX
+		-- SYNTAX TODO >>> add the commented groups!
+		-- Added
+		-- Boolean
+		-- Changed
+		-- Character
 		Comment = { fg = theme.mg, italic = true },
+		-- Conditional
 		Constant = { fg = theme.fg },
+		-- Debug
 		Delimiter = { fg = theme.fg },
+		-- Define
+		-- Exception
+		-- Float
 		Function = { fg = theme.fg_minus_minus },
 		Identifier = { fg = theme.fg },
+		-- Include
+		-- Keyword
+		-- Label
+		-- Macro
+		-- Number
+		-- Operator
+		-- PreCondit
 		PreProc = { fg = theme.fg, bold = true },
+		-- Removed
+		-- Repeat
 		Special = { fg = theme.fg },
+		-- SpecialChar
+		-- SpecialComment
 		Statement = { fg = theme.fg, bold = true },
+		-- StorageClass
 		String = { fg = theme.fg },
+		-- Structure
+		-- Tag
 		Type = { fg = theme.fg_minus },
+		-- Typedef
 		Underlined = { underline = true },
 		Todo = { fg = theme.bg, bg = theme.fg },
 		Ignore = { link = "Normal" },
