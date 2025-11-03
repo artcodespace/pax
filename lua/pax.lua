@@ -231,6 +231,7 @@ local function get_highlight_groups(theme)
 		-- background is much better in both light and dark modes.
 		ErrorMsgReverse = { fg = color.white, bg = theme.error },
 		WarningMsgReverse = { fg = color.white, bg = theme.error },
+		CursorLinePointer = { fg = theme.cursor_bg, bg = theme.bg_plus },
 	}
 end
 
