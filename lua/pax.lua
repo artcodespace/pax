@@ -182,39 +182,6 @@ local function get_highlight_groups(theme)
 		LspReferenceText = { link = "Normal" },
 		LspReferenceWrite = { link = "Normal" },
 		LspSignatureActiveParameter = { link = "IncSearch" },
-		-- TREESITTER/SYNTAX TODO >>> remove
-		-- ["@lsp.type.comment"] = {}, -- required to prevent below being overridden
-		-- ["@comment.error"] = { link = "Todo" },
-		-- ["@comment.todo"] = { link = "Todo" },
-		-- ["@comment.warning"] = { link = "Todo" },
-		-- ["@comment.note"] = { link = "Todo" },
-		-- ["@variable"] = { link = "Identifier" },
-		-- -- TREESITTER/JSX
-		-- ["@boolean.javascript"] = { fg = theme.fg_minus, bold = true },
-		-- ["@constant.builtin.javascript"] = { fg = theme.fg_minus, bold = true },
-		-- ["@constructor.javascript"] = { link = "Function" },
-		-- ["@function.builtin.javascript"] = { link = "Statement" },
-		-- ["@none.javascript"] = { link = "Constant" },
-		-- ["@tag.attribute.javascript"] = { fg = theme.fg_minus, italic = true },
-		-- ["@tag.builtin.javascript"] = { fg = theme.fg_minus, italic = true },
-		-- ["@tag.delimiter.javascript"] = { fg = theme.fg, bold = true },
-		-- ["@tag.javascript"] = { fg = theme.fg_minus, italic = true },
-		-- -- TREESITTER/TS
-		-- ["@boolean.typescript"] = { fg = theme.fg_minus, bold = true },
-		-- ["@constant.builtin.typescript"] = { fg = theme.fg_minus, bold = true },
-		-- ["@constructor.typescript"] = { link = "Function" },
-		-- -- TREESITTER/TSX
-		-- ["@boolean.tsx"] = { fg = theme.fg_minus, bold = true },
-		-- ["@constant.builtin.tsx"] = { fg = theme.fg_minus, bold = true },
-		-- ["@constructor.tsx"] = { link = "Function" },
-		-- ["@none.tsx"] = { link = "Constant" },
-		-- ["@tag.attribute.tsx"] = { fg = theme.fg_minus, italic = true },
-		-- ["@tag.builtin.tsx"] = { fg = theme.fg_minus, italic = true },
-		-- ["@tag.delimiter.tsx"] = { fg = theme.fg, bold = true },
-		-- ["@tag.tsx"] = { fg = theme.fg_minus, italic = true },
-		-- -- TREESITTER/LUA
-		-- ["@boolean.lua"] = { fg = theme.fg_minus, bold = true },
-		-- ["@constructor.lua"] = { link = "Delimiter" },
 		-- PLUGIN/FZF
 		FzfLuaFzfNormal = { link = "Comment" },
 		FzfLuaCursorLine = { link = "PMenuSel" },
@@ -230,7 +197,10 @@ local function get_highlight_groups(theme)
 		-- This is because the readability of the white text on the error/warning
 		-- background is much better in both light and dark modes.
 		ErrorMsgReverse = { fg = color.white, bg = theme.error },
-		WarningMsgReverse = { fg = color.white, bg = theme.error },
+		WarningMsgReverse = { fg = color.white, bg = theme.warning },
+		ErrorFlag = { fg = theme.cursor_bg, bg = theme.error },
+		WarningFlag = { fg = theme.cursor_bg, bg = theme.warning },
+		UnsavedChangesFlag = { fg = theme.bg, bg = theme.cursor_bg },
 		CursorLinePointer = { fg = theme.cursor_bg, bg = theme.bg_plus },
 	}
 end
